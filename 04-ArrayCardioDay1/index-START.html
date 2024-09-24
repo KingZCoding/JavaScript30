@@ -115,6 +115,13 @@
 
       // 7. sort Exercise
       // Sort the people alphabetically by last name
+      people.sort((a, b) => {
+        const lastNameA = a.split(' ').slice(-1)[0].toLowerCase();
+        const lastNameB = b.split(' ').slice(-1)[0].toLowerCase();
+        return lastNameA.localeCompare(lastNameB);
+      });
+
+      console.table(people);
 
       // 8. Reduce Exercise
       // Sum up the instances of each of these
@@ -134,6 +141,13 @@
         'car',
         'truck',
       ];
+
+      const totalInstances = data.reduce((accumlator, vehicle) => {
+        accumlator[vehicle] = (accumlator[vehicle] || 0) + 1;
+        return accumlator;
+      }, {});
+
+      console.table(totalInstances);
     </script>
   </body>
 </html>
